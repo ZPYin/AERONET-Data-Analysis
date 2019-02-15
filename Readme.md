@@ -38,5 +38,3 @@ There are some basic visualization functions inside the `lib` folder. Below are 
 ![LR by month](/img/Monthly_Mean_Lidar_Ratio_1020nm.jpg)
 ![Size distribution by month](img/Monthly_Mean_Size-Distribution.jpg)
 
-### License
-
