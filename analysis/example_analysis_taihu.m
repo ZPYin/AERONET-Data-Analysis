@@ -1,6 +1,6 @@
 clc; close all;
 
-projDir = fileparts(mfilename('fullpath'));
+projDir = fileparts(fileparts(mfilename('fullpath')));
 addpath(fullfile(projDir, 'lib'));
 
 %% Initialization

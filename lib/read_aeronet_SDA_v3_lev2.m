@@ -1,46 +1,46 @@
 function [aeronet] = read_aeronet_SDA_v3_lev2(file)
 %read_aeronet_SDA_v3_lev2 read aeronet SDA products.
-%   Example:
-%       [aeronet] = read_aeronet_SDA_v3_lev2(file)
-%   Inputs:
-%       file: char
-%           fullpath for data file.
-%   Outputs:
-%       aeronet: struct
-%           site: char
-%           PI: char
-%           email: char
-%           variables: cell
-%               variables definition for each column in all_points_data.
-%           all_points_data: cell
-%               each cell contains the whole column of the data file.
-%           date_time: array
-%               datenum array for each measurement.
-%           Total_AOD_500: array
-%               AOD at 500 nm.
-%           Fine_Mode_AOD_500: array
-%               Fine mode AOD at 500 nm.
-%           Coarse_Mode_AOD_500: array
-%               Coarse mode AOD at 500 nm.
-%           FMF_500: array
-%               Fine mode fraction at 500 nm.
-%           RMSE_Fine_Mode_AOD_500: array
-%               RMSE of fine mode AOD at 500 nm.
-%           RMSE_Coarse_Mode_AOD_500: array
-%               RMSE of coarse mode AOD at 500 nm.
-%           RMSE_FMF_500: array
-%               RMSE of fine mode fraction at 500 nm.
-%           Solar_Zenith_Angle: array
-%               solar zenith angle. This data can be used to filter some unqualified points.
-%   History:
-%       2019-02-14. First Edition by Zhenping
-%   Contact:
-%       zhenping@tropos.de
+%Example:
+%   [aeronet] = read_aeronet_SDA_v3_lev2(file)
+%Inputs:
+%   file: char
+%       fullpath for data file.
+%Outputs:
+%   aeronet: struct
+%       site: char
+%       PI: char
+%       email: char
+%       variables: cell
+%           variables definition for each column in all_points_data.
+%       all_points_data: cell
+%           each cell contains the whole column of the data file.
+%       date_time: array
+%           datenum array for each measurement.
+%       Total_AOD_500: array
+%           AOD at 500 nm.
+%       Fine_Mode_AOD_500: array
+%           Fine mode AOD at 500 nm.
+%       Coarse_Mode_AOD_500: array
+%           Coarse mode AOD at 500 nm.
+%       FMF_500: array
+%           Fine mode fraction at 500 nm.
+%       RMSE_Fine_Mode_AOD_500: array
+%           RMSE of fine mode AOD at 500 nm.
+%       RMSE_Coarse_Mode_AOD_500: array
+%           RMSE of coarse mode AOD at 500 nm.
+%       RMSE_FMF_500: array
+%           RMSE of fine mode fraction at 500 nm.
+%       Solar_Zenith_Angle: array
+%           solar zenith angle. This data can be used to filter some unqualified points.
+%History:
+%   2019-02-14. First Edition by Zhenping
+%Contact:
+%   zhenping@tropos.de
 
 aeronet = struct();
 
 % determine whether the data file exists
-if ~ exist(file, 'file')
+if exist(file, 'file') ~= 2
     warning('AERONET data file does not exist!\n%s', file);
     return;
 end
