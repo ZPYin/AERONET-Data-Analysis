@@ -54,7 +54,7 @@ fid = fopen(filename, 'r');
 
 switch p.Results.productType
 
-case {'AOD15'}   % Level 1.5 AOD
+case {'AOD15', 'AOD20'}   % Level 1.5 and 2.0 AOD
 
     fgetl(fid);
     fgetl(fid);
@@ -90,6 +90,7 @@ case {'AOD15'}   % Level 1.5 AOD
     aeronet.AOD_1020 = data{7};
     aeronet.AOD_870 = data{8};
     aeronet.AOD_675 = data{11};
+    aeronet.AOD_532 = data{17};
     aeronet.AOD_500 = data{20};
     aeronet.AOD_440 = data{23};
     aeronet.AOD_380 = data{26};
