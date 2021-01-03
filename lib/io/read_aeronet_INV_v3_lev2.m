@@ -106,6 +106,11 @@ if strcmpi(data.version, '3') && strcmpi(data.level, '2.0')
         aeronet.date_time = [aeronet.date_time, datenum([data{2}{iDatetime}, data{3}{iDatetime}], 'dd:mm:yyyyHH:MM:SS')];
     end
 
+    aeronet.AOD_440 = data{6};
+    aeronet.AOD_675 = data{7};
+    aeronet.AOD_870 = data{8};
+    aeronet.AOD_1020 = data{9};
+    aeronet.AE_440_870 = data{10};
     aeronet.AOD_Ext_Tot_440 = data{11};
     aeronet.AOD_Ext_Tot_675 = data{12};
     aeronet.AOD_Ext_Tot_870 = data{13};
