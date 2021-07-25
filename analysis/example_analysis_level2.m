@@ -1,7 +1,8 @@
 clc; close all;
 
 projDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(fullfile(projDir, 'lib'));
+addpath(genpath(fullfile(projDir, 'lib')));
+addpath(genpath(fullfile(projDir, 'include')));
 
 %% Initialization
 % if you want to analysis the data from other AERONET sites, you need to download the data to the 'data' folder, and change the filename below

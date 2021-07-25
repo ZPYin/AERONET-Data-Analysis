@@ -1,7 +1,8 @@
 clc; close all;
 
 projDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(fullfile(projDir, 'lib'));
+addpath(genpath(fullfile(projDir, 'lib')));
+addpath(genpath(fullfile(projDir, 'include')));
 
 %% Initialization
 site = 'Punta_Arenas_UMAG';   % AERONET site
