@@ -21,6 +21,8 @@ function fh = display_monthly(time, data, varargin)
 %       flag to control whether to use logarithm scale (default: false).
 %   figFile: char
 %       if this keyword was set, the figure will be exported to the figFile (default: '').
+%   matFilename: char
+%       if this keyword was set, the figure data will be exported to matFilename (default: '').
 %Outputs:
 %   fh: figure handle
 %       figure handle
@@ -40,6 +42,7 @@ addParameter(p, 'dry_month', [], @isnumeric);
 addParameter(p, 'wet_month', [], @isnumeric);
 addParameter(p, 'yLog', false, @islogical);
 addParameter(p, 'figFile', '', @ischar);
+addParameter(p, 'matFilename', '', @ischar);
 
 parse(p, time, data, varargin{:});
 
@@ -177,8 +180,18 @@ set(gcf, 'Color', 'w');
 % font can be configured here
 set(findall(gcf, '-Property', 'FontName'), 'FontName', 'Times New Roman');
 
+% export figure to file
 if ~ isempty(p.Results.figFile)
+    fprintf('exporting figure to %s\n', p.Results.figFile);
     export_fig(gcf, p.Results.figFile, '-r300');
+    fprintf('Finish.\n');
+end
+
+% export data
+if ~ isempty(p.Results.matFilename)
+    fprintf('Exporting data to %s\n', p.Results.matFilename);
+    save(p.Results.matFilename, 'time', 'data');
+    fprintf('Finish.\n');
 end
 
 end

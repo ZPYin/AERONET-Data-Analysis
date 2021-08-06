@@ -15,6 +15,8 @@ function fh = display_time_series(time, data, varargin)
 %       figure title (default: '');
 %   figFile: char
 %       if this keyword was set, the figure will be exported to the figFile (default: '').
+%   matFilename: char
+%       if this keyword was set, the figure data will be exported to matFilename (default: '').
 %Outputs:
 %   fh: figure handle
 %       figure handle.
@@ -30,6 +32,7 @@ addRequired(p, 'time', @isnumeric);
 addRequired(p, 'data', @isnumeric);
 addParameter(p, 'yLabel', 'AOD @ 500 nm', @ischar);
 addParameter(p, 'title', '', @ischar);
+addParameter(p, 'matFilename', '', @ischar);
 addParameter(p, 'figFile', '', @ischar);
 
 parse(p, time, data, varargin{:});
@@ -81,9 +84,20 @@ grid off;
 
 % font can be configured here
 set(findall(gcf, '-Property', 'FontName'), 'FontName', 'Times New Roman');
+set(gcf, 'Color', 'w');
 
+% export figure to file
 if ~ isempty(p.Results.figFile)
+    fprintf('exporting figure to %s\n', p.Results.figFile);
     export_fig(gcf, p.Results.figFile, '-r300');
+    fprintf('Finish.\n');
+end
+
+% export data
+if ~ isempty(p.Results.matFilename)
+    fprintf('Exporting data to %s\n', p.Results.matFilename);
+    save(p.Results.matFilename, 'time', 'data');
+    fprintf('Finish.\n');
 end
 
 end

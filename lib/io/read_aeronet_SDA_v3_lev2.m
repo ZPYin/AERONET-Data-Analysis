@@ -80,7 +80,7 @@ if strcmpi(data.version, '3') && strcmpi(data.level, '2.0')
     aeronet.all_points_data = data;
     aeronet.date_time = [];
     for iDatetime = 1:length(data{1})
-        aeronet.date_time = [aeronet.date_time, datenum([data{1}{iDatetime}, data{2}{iDatetime}], 'dd:mm:yyyyHH:MM:SS')];
+        aeronet.date_time = cat(1, aeronet.date_time, datenum([data{1}{iDatetime}, data{2}{iDatetime}], 'dd:mm:yyyyHH:MM:SS'));
     end
 
     aeronet.Total_AOD_500 = data{5};

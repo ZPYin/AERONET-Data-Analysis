@@ -84,7 +84,7 @@ case {'AOD15', 'AOD20'}   % Level 1.5 and 2.0 AOD
     aeronet.all_points_data = data;
     aeronet.date_time = [];
     for iDatetime = 1:length(data{1})
-        aeronet.date_time = cat(2, aeronet.date_time, datenum([data{2}{iDatetime}, data{3}{iDatetime}], 'dd:mm:yyyyHH:MM:SS'));
+        aeronet.date_time = cat(1, aeronet.date_time, datenum([data{2}{iDatetime}, data{3}{iDatetime}], 'dd:mm:yyyyHH:MM:SS'));
     end
 
     aeronet.AOD_1020 = data{7};
