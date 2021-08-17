@@ -25,7 +25,7 @@ for iDay = 1:int32(dateRange(2) - dateRange(1))
 
     % flag for averaging
     flagDate = (sdData.date_time < stopDate) & (sdData.date_time >= startDate);
-    flagPollution = transpose((sdData.AOD_440 > 0.4) & (sdData.AE_440_870 > 1.0));
+    flagPollution = (sdData.AOD_440 > 0.4) & (sdData.AE_440_870 > 1.0);
 
     % average size
     mean_size_dist = nanmean(sdData.size_dist(flagDate & flagPollution), 2);

@@ -6,7 +6,7 @@ addpath(genpath(fullfile(projectDir, 'include')));
 
 %% initialization
 dataDir = fullfile(projectDir, 'data');
-site = 'Dushanbe';
+site = 'Beijing-CAMS';
 
 %% read data
 AODFile = listfile(dataDir, sprintf('.*%s.lev20', site));
@@ -60,9 +60,9 @@ F_AOD = AOD_500_interp .* FMF_interp;
 F_AOD_std = F_AOD .* 0.05;
 C_AOD = AOD_500_interp .* (1 - FMF_interp);
 C_AOD_std = C_AOD .* 0.05;
-APC_size0 = transpose(calc_parNumber(size_bins, Nr, 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+APC_size0 = calc_parNumber(size_bins, Nr, 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 APC_size0_std = APC_size0 .* 0.1;
-v_size0 = transpose(calc_parVolume(size_bins, Vr, 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+v_size0 = calc_parVolume(size_bins, Vr, 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 v_size0_std = v_size0 .* 0.1;
 
 % dust cases
@@ -70,9 +70,9 @@ F_AOD_d = AOD_500_interp(flagDustCase) .* FMF_interp(flagDustCase);
 F_AOD_d_std = F_AOD_d .* 0.05;
 C_AOD_d = AOD_500_interp(flagDustCase) .* (1 - FMF_interp(flagDustCase));
 C_AOD_d_std = C_AOD_d .* 0.05;
-APC_size0_d = transpose(calc_parNumber(size_bins, Nr(flagDustCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+APC_size0_d = calc_parNumber(size_bins, Nr(flagDustCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 APC_size0_d_std = APC_size0_d .* 0.1;
-v_size0_d = transpose(calc_parVolume(size_bins, Vr(flagDustCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+v_size0_d = calc_parVolume(size_bins, Vr(flagDustCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 v_size0_d_std = v_size0_d .* 0.1;
 
 % pollution cases
@@ -80,9 +80,9 @@ F_AOD_p = AOD_500_interp(flagPollutionCase) .* FMF_interp(flagPollutionCase);
 F_AOD_p_std = F_AOD_p .* 0.05;
 C_AOD_p = AOD_500_interp(flagPollutionCase) .* (1 - FMF_interp(flagPollutionCase));
 C_AOD_p_std = C_AOD_p .* 0.05;
-APC_size0_p = transpose(calc_parNumber(size_bins, Nr(flagPollutionCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+APC_size0_p = calc_parNumber(size_bins, Nr(flagPollutionCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 APC_size0_p_std = APC_size0_p .* 0.1;
-v_size0_p = transpose(calc_parVolume(size_bins, Vr(flagPollutionCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+v_size0_p = calc_parVolume(size_bins, Vr(flagPollutionCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 v_size0_p_std = v_size0_p .* 0.1;
 
 % mixed cases
@@ -90,9 +90,9 @@ F_AOD_m = AOD_500_interp(flagMixedCase) .* FMF_interp(flagMixedCase);
 F_AOD_m_std = F_AOD_m .* 0.05;
 C_AOD_m = AOD_500_interp(flagMixedCase) .* (1 - FMF_interp(flagMixedCase));
 C_AOD_m_std = C_AOD_m .* 0.05;
-APC_size0_m = transpose(calc_parNumber(size_bins, Nr(flagMixedCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+APC_size0_m = calc_parNumber(size_bins, Nr(flagMixedCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 APC_size0_m_std = APC_size0_m .* 0.1;
-v_size0_m = transpose(calc_parVolume(size_bins, Vr(flagMixedCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20));
+v_size0_m = calc_parVolume(size_bins, Vr(flagMixedCase, :), 'size_range', [size0 / 1e3, 100], 'interp_size_bin', 0:0.01:20);
 v_size0_m_std = v_size0_m .* 0.1;
 % APC_size0_m_C = APC_size0_m' - (linReg_p_FM.Coefficients.Estimate(2) .* F_AOD_m + linReg_p_FM.Coefficients.Estimate(1));
 APC_size0_m_C = APC_size0_m;
