@@ -1,35 +1,42 @@
 function fh = display_monthly(time, data, varargin)
-%DISPLAY_MONTHLY display the monthly mean values of the input parameter.
-%Example:
-%   % Usecase 1:
+% DISPLAY_MONTHLY display the monthly mean values of the input parameter.
+%
+% USAGE:
+%    fh = display_monthly(time, data)
+%
+% INPUTS:
+%    time: numeric
+%        timestamp for each measurement. (datenum)
+%    data: numeric
+%        AERONET product.
+%
+% KEYWORDS:
+%    yLabel: char
+%        y-axis label (default: 'AOD @ 500 nm').
+%    title: char
+%        figure title (default: '').
+%    dry_month: numeric
+%        month tag for dry season (default: []).
+%    wet_month: numeric
+%        month tag for wet season (default: []).
+%    yLog: logical
+%        flag to control whether to use logarithm scale (default: false).
+%    figFile: char
+%        if this keyword was set, the figure will be exported to the figFile (default: '').
+%    matFilename: char
+%        if this keyword was set, the figure data will be exported to matFilename (default: '').
+% OUTPUTS:
+%    fh: figure handle
+%        figure handle
+%
+% EXAMPLE:
+%   % USECASE 1:
 %   display_monthly(time, AOD_500, 'yLabel', 'AOD @ 500 nm', 'title', 'AERONET AOD', 'wet_month', 3:10, 'dry_month', [1:2, 11:12]);
-%Inputs:
-%   time: numeric
-%       timestamp for each measurement. (datenum)
-%   data: numeric
-%       AERONET product.
-%Keywords:
-%   yLabel: char
-%       y-axis label (default: 'AOD @ 500 nm').
-%   title: char
-%       figure title (default: '').
-%   dry_month: numeric
-%       month tag for dry season (default: []).
-%   wet_month: numeric
-%       month tag for wet season (default: []).
-%   yLog: logical
-%       flag to control whether to use logarithm scale (default: false).
-%   figFile: char
-%       if this keyword was set, the figure will be exported to the figFile (default: '').
-%   matFilename: char
-%       if this keyword was set, the figure data will be exported to matFilename (default: '').
-%Outputs:
-%   fh: figure handle
-%       figure handle
-%History:
-%   The code is fully based on the source code from https://github.com/hmjbarbosa/aeronet.
-%Contact:
-%   zhenping@tropos.de
+%
+% HISTORY:
+%    2024-03-12: first edition by Zhenping. 
+%    The code is fully based on the source code from https://github.com/hmjbarbosa/aeronet.
+% .. Authors: - zp.yin@whu.edu.cn
 
 p = inputParser;
 p.KeepUnmatched = true;

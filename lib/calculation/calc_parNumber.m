@@ -1,27 +1,35 @@
 function [N_par] = calc_parNumber(size_bins, nr, varargin)
-%calc_parNumber calculate particle number at the given size range.
-%Example:
-%   % Usecase 1: total particle number between the given size range 0~2.5 um.
-%   [N_par] = calc_parNumber(size_bins, nr, 'size_range', [0, 2.5]);
-%   % Usecase 2: total particle number between the given size range with interpolation.
-%   [N_par] = calc_parNumber(size_bins, nr, 'interp_size_bin', 0:0.01:12)
-%Inputs:
-%   size_bin: array (1 * bins)
-%       radius per bin. (um)
-%   nr: matrix (time * bins)
-%       number per logarithm of radius (um^{-2})
-%Keywords:
-%   size_range: 2-element array
-%       integral size range. (micron)
-%   interp_size_bin: array
-%       interpolated size bins. (micron)
-%Outputs:
-%   N_par: vector (times * 1)
-%       columnar particle number. (um^{-2})
-%History:
-%   2020-05-26. First Edition by Zhenping
-%Contact:
-%   zp.yin@whu.edu.cn
+% CALC_PARNUMBER calculate particle number at the given size range.
+%
+% USAGE:
+%    [output] = calc_parNumber(size_bins, nr)
+%
+% INPUTS:
+%    size_bin: array (1 * bins)
+%        radius per bin. (um)
+%    nr: matrix (time * bins)
+%        number per logarithm of radius (um^{-2})
+%
+% KEYWORDS:
+%    size_range: 2-element array
+%        integral size range. (micron)
+%    interp_size_bin: array
+%        interpolated size bins. (micron)
+%
+% OUTPUTS:
+%    N_par: vector (times * 1)
+%        columnar particle number. (um^{-2})
+%
+% EXAMPLE:
+%    % Usecase 1: total particle number between the given size range 0~2.5 um.
+%    [N_par] = calc_parNumber(size_bins, nr, 'size_range', [0, 2.5]);
+%
+%    % Usecase 2: total particle number between the given size range with interpolation.
+%    [N_par] = calc_parNumber(size_bins, nr, 'interp_size_bin', 0:0.01:12)
+%
+% HISTORY:
+%    2020-05-26: first edition by Zhenping
+% .. Authors: - zp.yin@whu.edu.cn
 
 p = inputParser;
 p.KeepUnmatched = true;

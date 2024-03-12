@@ -1,27 +1,35 @@
 function [N_par] = calc_parVolume(size_bins, vr, varargin)
-%calc_parVolume calculate particle volume at the given size range.
-%Example:
-%   % Usecase 1: total particle volume between the given size range 0~2.5 um.
-%   [N_par] = calc_parVolume(size_bins, vr, 'size_range', [0, 2.5]);
-%   % Usecase 2: total particle volume between the given size range with interpolation.
-%   [N_par] = calc_parVolume(size_bins, vr, 'interp_size_bin', 0:0.01:12)
-%Inputs:
-%   size_bin: array (1 * bins)
-%       radius per bin. (um)
-%   vr: matrix (time * bins)
-%       volume per logarithm of radius (um^3/um^2)
-%Keywords:
-%   size_range: 2-element array
-%       integral size range. (micron)
-%   interp_size_bin: array
-%       interpolated size bins. (micron)
-%Outputs:
-%   N_par: vector (times * 1)
-%       columnar particle volume. (um)
-%History:
-%   2020-05-26. First Edition by Zhenping
-%Contact:
-%   zp.yin@whu.edu.cn
+% CALC_PARVOLUME calculate particle volume at the given size range.
+%
+% USAGE:
+%    [N_par] = calc_parVolume(size_bins, vr)
+%
+% INPUTS:
+%    size_bin: array (1 * bins)
+%        radius per bin. (um)
+%    vr: matrix (time * bins)
+%        volume per logarithm of radius (um^3/um^2)
+% 
+% KEYWORDS:
+%    size_range: 2-element array
+%        integral size range. (micron)
+%    interp_size_bin: array
+%        interpolated size bins. (micron)
+% 
+% OUTPUTS:
+%    N_par: vector (times * 1)
+%        columnar particle volume. (um)
+% 
+% EXAMPLE:
+%    % Usecase 1: total particle volume between the given size range 0~2.5 um.
+%    [N_par] = calc_parVolume(size_bins, vr, 'size_range', [0, 2.5]);
+% 
+%    % Usecase 2: total particle volume between the given size range with interpolation.
+%    [N_par] = calc_parVolume(size_bins, vr, 'interp_size_bin', 0:0.01:12)
+%
+% HISTORY:
+%    2020-05-26: first edition by Zhenping
+% .. Authors: - zp.yin@whu.edu.cn
 
 p = inputParser;
 p.KeepUnmatched = true;

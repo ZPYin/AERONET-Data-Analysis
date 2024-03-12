@@ -1,32 +1,29 @@
 clc; close all;
-
-projDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(genpath(fullfile(projDir, 'lib')));
-addpath(genpath(fullfile(projDir, 'include')));
+global AERONET_ENVS;
 
 %% Initialization
 % if you want to analysis the data from other AERONET sites, you need to download the data to the 'data' folder, and change the filename below
 station = 'Taihu';
-AODFile = fullfile(projDir, 'data', '19930101_20181222_Taihu.lev20');
-SDAFile = fullfile(projDir, 'data', '19930101_20181222_Taihu.ONEILL_lev20');
-INVFile = fullfile(projDir, 'data', '19930101_20190209_Taihu.all');
+AODFile = fullfile(AERONET_ENVS.RootDir, 'data', '19930101_20181222_Taihu.lev20');
+SDAFile = fullfile(AERONET_ENVS.RootDir, 'data', '19930101_20181222_Taihu.ONEILL_lev20');
+INVFile = fullfile(AERONET_ENVS.RootDir, 'data', '19930101_20190209_Taihu.all');
 tRange = [datenum(2010, 1, 1), datenum(2015, 12, 31)];
 
 % paths of figure file
-figFileAOD500 = fullfile(projDir, 'img', sprintf('AOD_timeseries_%s.png', station));
-figFileMonthAOD500 = fullfile(projDir, 'img', sprintf('AOD_monthly_mean_%s.png', station));
-figFileAE = fullfile(projDir, 'img', sprintf('AE_timeseries_%s.png', station));
-figFileMonthAE = fullfile(projDir, 'img', sprintf('AE_monthly_mean_%s.png', station));
-figFileFMF = fullfile(projDir, 'img', sprintf('FMF_timeseries_%s.png', station));
-figFileMonthFMF = fullfile(projDir, 'img', sprintf('FMF_monthly_mean_%s.png', station));
-figFileDR = fullfile(projDir, 'img', sprintf('DR_timeseries_%s.png', station));
-figFileMonthDR = fullfile(projDir, 'img', sprintf('DR_monthly_mean_%s.png', station));
-figFileLR = fullfile(projDir, 'img', sprintf('LR_timeseries_%s.png', station));
-figFileMonthLR = fullfile(projDir, 'img', sprintf('LR_monthly_mean_%s.png', station));
-figFileMonthSD = fullfile(projDir, 'img', sprintf('SD_monthly_mean_%s.png', station));
+figFileAOD500 = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('AOD_timeseries_%s.png', station));
+figFileMonthAOD500 = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('AOD_monthly_mean_%s.png', station));
+figFileAE = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('AE_timeseries_%s.png', station));
+figFileMonthAE = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('AE_monthly_mean_%s.png', station));
+figFileFMF = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('FMF_timeseries_%s.png', station));
+figFileMonthFMF = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('FMF_monthly_mean_%s.png', station));
+figFileDR = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('DR_timeseries_%s.png', station));
+figFileMonthDR = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('DR_monthly_mean_%s.png', station));
+figFileLR = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('LR_timeseries_%s.png', station));
+figFileMonthLR = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('LR_monthly_mean_%s.png', station));
+figFileMonthSD = fullfile(AERONET_ENVS.RootDir, 'img', sprintf('SD_monthly_mean_%s.png', station));
 
 % paths of mat data
-matFileAOD500 = fullfile(projDir, 'data', sprintf('AOD_timeseries_%s.mat', station));
+matFileAOD500 = fullfile(AERONET_ENVS.RootDir, 'data', sprintf('AOD_timeseries_%s.mat', station));
 
 %% read data
 fprintf('Start reading the AOD data: %s\n', basename(AODFile));

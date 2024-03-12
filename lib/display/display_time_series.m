@@ -1,29 +1,37 @@
 function fh = display_time_series(time, data, varargin)
-%DISPLAY_TIME_SERIES display timeseries of AERONET products.
-%Example:
-%   % Usecase 1:
+% DISPLAY_TIME_SERIES display timeseries of AERONET products.
+%
+% USAGE:
+%    fh = display_time_series(time, data)
+%
+% INPUTS:
+%    time: numeric
+%        timestamp of each measurement. (datenum)
+%    data: numeric
+%        AERONET product.
+%
+% KEYWORDS:
+%    yLabel: char
+%        y-axis label (default: 'AOD @ 500 nm').
+%    title: char
+%        figure title (default: '');
+%    figFile: char
+%        if this keyword was set, the figure will be exported to the figFile (default: '').
+%    matFilename: char
+%        if this keyword was set, the figure data will be exported to matFilename (default: '').
+%
+% OUTPUTS:
+%    fh: figure handle
+%        figure handle.
+%
+% EXAMPLE:
+%   % USECASE 1:
 %   display_time_series(time, AOD_500, 'yLabel', 'AOD @ 500 nm', 'title', 'Sunphotometer analysis for Taihu');
-%Inputs:
-%   time: numeric
-%       timestamp of each measurement. (datenum)
-%   data: numeric
-%       AERONET product.
-%Keywords:
-%   yLabel: char
-%       y-axis label (default: 'AOD @ 500 nm').
-%   title: char
-%       figure title (default: '');
-%   figFile: char
-%       if this keyword was set, the figure will be exported to the figFile (default: '').
-%   matFilename: char
-%       if this keyword was set, the figure data will be exported to matFilename (default: '').
-%Outputs:
-%   fh: figure handle
-%       figure handle.
-%History:
-%   The code is fully based on the source code from https://github.com/hmjbarbosa/aeronet.
-%Contact:
-%   zp.yin@whu.edu.cn
+%
+% HISTORY:
+%    2024-03-12: first edition by Zhenping
+%                The code is fully based on the source code from https://github.com/hmjbarbosa/aeronet.
+% .. Authors: - zp.yin@whu.edu.cn
 
 p = inputParser;
 p.KeepUnmatched = true;

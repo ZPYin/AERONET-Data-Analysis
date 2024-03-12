@@ -1,18 +1,15 @@
 clc; close all;
-
-projDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(genpath(fullfile(projDir, 'lib')));
-addpath(genpath(fullfile(projDir, 'include')));
+global AERONET_ENVS;
 
 %% Initialization
 site = 'Punta_Arenas_UMAG';   % AERONET site
                               % site list can be found in https://aeronet.gsfc.nasa.gov/aeronet_locations_v3.txt
 starttime = datenum(2019, 1, 1);
 stoptime = datenum(2019, 1, 10);
-AOD15_file = fullfile(projDir, 'data', sprintf('%s_AOD15.txt', site));
-SDA15_file = fullfile(projDir, 'data', sprintf('%s_SDA15.txt', site));
-SIZ_file = fullfile(projDir, 'data', sprintf('%s_SIZ.txt', site));
-LID_file = fullfile(projDir, 'data', sprintf('%s_LID.txt', site));
+AOD15_file = fullfile(AERONET_ENVS.RootDir, 'data', sprintf('%s_AOD15.txt', site));
+SDA15_file = fullfile(AERONET_ENVS.RootDir, 'data', sprintf('%s_SDA15.txt', site));
+SIZ_file = fullfile(AERONET_ENVS.RootDir, 'data', sprintf('%s_SIZ.txt', site));
+LID_file = fullfile(AERONET_ENVS.RootDir, 'data', sprintf('%s_LID.txt', site));
 
 %% download data
 fprintf('Start downloading the AOD data...\n');

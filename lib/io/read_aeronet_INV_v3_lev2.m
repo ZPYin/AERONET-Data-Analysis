@@ -1,64 +1,67 @@
-function [aeronet] = read_aeronet_INV_v3_lev2(file)
-%read_aeronet_INV_v3_lev2 read aeronet INV products.
-%Example:
-%   [aeronet] = read_aeronet_INV_v3_lev2(file)
-%Inputs:
-%   file: char
-%       fullpath for data file.
-%Outputs:
-%   aeronet: struct
-%       site: char
-%       PI: char
-%       email: char
-%       variables: cell
-%           variables definition for each column in all_points_data.
-%       all_points_data: cell
-%           each cell contains the whole column of the data file.
-%       date_time: array
-%           datenum array for each measurement.
-%       AOD_Ext_Tot_440
-%       AOD_Ext_Tot_675
-%       AOD_Ext_Tot_870
-%       AOD_Ext_Tot_1020
-%       AOD_Ext_Fine_440
-%       AOD_Ext_Fine_675
-%       AOD_Ext_Fine_870
-%       AOD_Ext_Fine_1020
-%       AOD_Ext_Coarse_440
-%       AOD_Ext_Coarse_675
-%       AOD_Ext_Coarse_870
-%       AOD_Ext_Coarse_1020
-%       SSA_440
-%       SSA_675
-%       SSA_870
-%       SSA_1020
-%       AAOD_440
-%       AAOD_675
-%       AAOD_870
-%       AAOD_1020
-%       RefI_Real_440
-%       RefI_Real_675
-%       RefI_Real_870
-%       RefI_Real_1020
-%       RefI_Imag_440
-%       RefI_Imag_675
-%       RefI_Imag_870
-%       RefI_Imag_1020
-%       Sphericity_Factor
-%       size_x
-%       size_dist
-%       LR_440
-%       LR_675
-%       LR_870
-%       LR_1020
-%       DepRatio_440
-%       DepRatio_675
-%       DepRatio_870
-%       DepRatio_1020
-%History:
-%   2019-02-14. First Edition by Zhenping
-%Contact:
-%   zhenping@tropos.de
+function [output] = read_aeronet_INV_v3_lev2(params)
+% READ_AERONET_INV_V3_LEV2 read aeronet INV products.
+%
+% USAGE:
+%    [output] = read_aeronet_INV_v3_lev2(params)
+%
+% INPUTS:
+%    file: char
+%        fullpath for data file.
+% 
+% OUTPUTS:
+%    aeronet: struct
+%        site: char
+%        PI: char
+%        email: char
+%        variables: cell
+%            variables definition for each column in all_points_data.
+%        all_points_data: cell
+%            each cell contains the whole column of the data file.
+%        date_time: array
+%            datenum array for each measurement.
+%        AOD_Ext_Tot_440
+%        AOD_Ext_Tot_675
+%        AOD_Ext_Tot_870
+%        AOD_Ext_Tot_1020
+%        AOD_Ext_Fine_440
+%        AOD_Ext_Fine_675
+%        AOD_Ext_Fine_870
+%        AOD_Ext_Fine_1020
+%        AOD_Ext_Coarse_440
+%        AOD_Ext_Coarse_675
+%        AOD_Ext_Coarse_870
+%        AOD_Ext_Coarse_1020
+%        SSA_440
+%        SSA_675
+%        SSA_870
+%        SSA_1020
+%        AAOD_440
+%        AAOD_675
+%        AAOD_870
+%        AAOD_1020
+%        RefI_Real_440
+%        RefI_Real_675
+%        RefI_Real_870
+%        RefI_Real_1020
+%        RefI_Imag_440
+%        RefI_Imag_675
+%        RefI_Imag_870
+%        RefI_Imag_1020
+%        Sphericity_Factor
+%        size_x
+%        size_dist
+%        LR_440
+%        LR_675
+%        LR_870
+%        LR_1020
+%        DepRatio_440
+%        DepRatio_675
+%        DepRatio_870
+%        DepRatio_1020
+%
+% HISTORY:
+%    2019-02-14: first edition by Zhenping
+% .. Authors: - zp.yin@whu.edu.cn
 
 aeronet = struct();
 

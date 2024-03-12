@@ -1,11 +1,8 @@
 clc; close all;
-
-projectDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(genpath(fullfile(projectDir, 'lib')));
-addpath(genpath(fullfile(projectDir, 'include')));
+global AERONET_ENVS;
 
 %% initialization
-dataDir = fullfile(projectDir, 'data');
+dataDir = fullfile(AERONET_ENVS.RootDir, 'data');
 site = 'Beijing-CAMS';
 
 %% read data
@@ -146,7 +143,7 @@ if ~ isempty(F_AOD_p)
     set(findall(gcf, '-Property', 'FontName'), 'FontName', 'Times New Roman');
     set(findall(gcf, '-Property', 'FontSize'), 'FontSize', 16);
 
-    export_fig(gcf, fullfile(projectDir, 'img', sprintf('Pollution_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
+    export_fig(gcf, fullfile(AERONET_ENVS.RootDir, 'img', sprintf('Pollution_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
 end
 
 % dust cases
@@ -174,7 +171,7 @@ if ~ isempty(F_AOD_d)
     set(findall(gcf, '-Property', 'FontName'), 'FontName', 'Times New Roman');
     set(findall(gcf, '-Property', 'FontSize'), 'FontSize', 16);
 
-    export_fig(gcf, fullfile(projectDir, 'img', sprintf('Dust_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
+    export_fig(gcf, fullfile(AERONET_ENVS.RootDir, 'img', sprintf('Dust_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
 end
 
 % mixed cases
@@ -202,5 +199,5 @@ if (~ isempty(F_AOD_p)) && (~ isempty(F_AOD_m))
     set(findall(gcf, '-Property', 'FontName'), 'FontName', 'Times New Roman');
     set(findall(gcf, '-Property', 'FontSize'), 'FontSize', 16);
 
-    export_fig(gcf, fullfile(projectDir, 'img', sprintf('Mixed_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
+    export_fig(gcf, fullfile(AERONET_ENVS.RootDir, 'img', sprintf('Mixed_related_n%d_at_%s_weighted_mean.png', size0, site)), '-r300');
 end

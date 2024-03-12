@@ -1,13 +1,11 @@
 % display daily mean size distribution
 
 clc; close all;
-projectDir = fileparts(fileparts(mfilename('fullpath')));
-addpath(genpath(fullfile(projectDir, 'lib')));
-addpath(genpath(fullfile(projectDir, 'include')));
+global AERONET_ENVS;
 
 %% parameter initialization
-sdFile = fullfile(projectDir, 'data', '19930101_20190209_Beijing-CAMS.all');   % absolute path of the size distribution file.
-aodFile = fullfile(projectDir, 'data', '19930101_20181222_Beijing-CAMS.lev20');
+sdFile = fullfile(AERONET_ENVS.RootDir, 'data', '19930101_20190209_Beijing-CAMS.all');   % absolute path of the size distribution file.
+aodFile = fullfile(AERONET_ENVS.RootDir, 'data', '19930101_20181222_Beijing-CAMS.lev20');
 saveDir = 'D:\Data\AERONET';
 
 %% load data

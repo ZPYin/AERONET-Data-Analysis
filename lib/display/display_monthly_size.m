@@ -1,29 +1,32 @@
 function fh = display_monthly_size(time, size_bins, Vc_bins, varargin)
-%DISPLAY_MONTHLY_SIZE display statistics of volume-size distribution.
-%Example:
-%   fh = display_monthly_size(time, size_bins, Vc_bins, varargin)
-%Inputs:
-%   time: numeric
-%       timestamp of each measurement. (datenum)
-%   size_bins: numberic
-%       radius. (micron)
-%   Vc_bins: numeric
-%       volume-size distribution. (dV(r)/dln(r) micron^3*m^-2)
-%   cRange: 2-element array
-%       color range of volume-size distribution (default: [0, 0.06]). (micron^3*m^-2)
-%   title: char
-%       figure title (default: '').
-%   figFile: char
-%       if this keyword was set, the figure will be exported to the figFile (default: '').
-%   matFilename: char
-%       if this keyword was set, the figure data will be exported to matFilename (default: '').
-%Outputs:
-%   fh: figure handle
-%       figure handle.
-%History:
-%   2019-02-15. First Edition by Zhenping
-%Contact:
-%   zhenping@tropos.de
+% DISPLAY_MONTHLY_SIZE display statistics of volume-size distribution.
+%
+% USAGE:
+%    fh = display_monthly_size(time, size_bins, Vc_bins)
+%
+% INPUTS:
+%    time: numeric
+%        timestamp of each measurement. (datenum)
+%    size_bins: numberic
+%        radius. (micron)
+%    Vc_bins: numeric
+%        volume-size distribution. (dV(r)/dln(r) micron^3*m^-2)
+%    cRange: 2-element array
+%        color range of volume-size distribution (default: [0, 0.06]). (micron^3*m^-2)
+%    title: char
+%        figure title (default: '').
+%    figFile: char
+%        if this keyword was set, the figure will be exported to the figFile (default: '').
+%    matFilename: char
+%        if this keyword was set, the figure data will be exported to matFilename (default: '').
+%
+% OUTPUTS:
+%    fh: figure handle
+%        figure handle.
+%
+% HISTORY:
+%    2019-02-15: first edition by Zhenping
+% .. Authors: - zp.yin@whu.edu.cn
 
 p = inputParser;
 p.KeepUnmatched = true;

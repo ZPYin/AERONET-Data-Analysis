@@ -11,6 +11,12 @@ Request data from web service can be done through [AERONET Web Service](/doc/dat
 
 Download the data manually with the method described in [Data Download](#DataDownload).
 
+Install the toolbox
+
+```matlab
+setupAERONETToolbox;
+```
+
 Read data
 
 ``` matlab
@@ -25,8 +31,6 @@ display_time_series(AOD_Res.date_time(mask), AOD_Res.AOD_500(mask), 'AOD @ 500 n
 ```
 
 You can follow the [example](example_analysis_taihu.m) in this repository to start some basic analysis.
-
-
 
 ### Figures
 

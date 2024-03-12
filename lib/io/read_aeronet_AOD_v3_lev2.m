@@ -1,35 +1,36 @@
 function [aeronet] = read_aeronet_AOD_v3_lev2(file)
-%read_aeronet_AOD_v3_lev2 read aeronet AOD products.
-%Example:
-%   [aeronet] = read_aeronet_AOD_v3_lev2(file)
-%Inputs:
-%   file: char
-%       fullpath for data file.
-%Outputs:
-%   aeronet: struct
-%       site: char
-%       PI: char
-%       email: char
-%       variables: cell
-%           variables definition for each column in all_points_data.
-%       all_points_data: cell
-%           each cell contains the whole column of the data file.
-%       date_time: array
-%           datenum array for each measurement.
-%       AOD_{wavelength}: array
-%           AOD at each wavelength.
-%       AE_{wavelength1}_{wavelength2}: array
-%           Angstroem Exponent.
-%       PWV: array
-%           precipitable water vapor. [cm]
-%       Solar_Zenith_Angle: array
-%           solar zenith angle. This data can be used to filter some unqualified points.
-%       Sensor_Temperature: array
-%           sensor temperature. This data can be used to filter some unqualified points.
-%History:
-%   2019-02-14. First Edition by Zhenping
-%Contact:
-%   zhenping@tropos.de
+% READ_AERONET_AOD_V3_LEV2 read aeronet AOD products.
+%
+% USAGE:
+%    [aeronet] = read_aeronet_AOD_v3_lev2(file)
+% INPUTS:
+%    file: char
+%        fullpath for data file.
+% OUTPUTS:
+%    aeronet: struct
+%        site: char
+%        PI: char
+%        email: char
+%        variables: cell
+%            variables definition for each column in all_points_data.
+%        all_points_data: cell
+%            each cell contains the whole column of the data file.
+%        date_time: array
+%            datenum array for each measurement.
+%        AOD_{wavelength}: array
+%            AOD at each wavelength.
+%        AE_{wavelength1}_{wavelength2}: array
+%            Angstroem Exponent.
+%        PWV: array
+%            precipitable water vapor. [cm]
+%        Solar_Zenith_Angle: array
+%            solar zenith angle. This data can be used to filter some unqualified points.
+%        Sensor_Temperature: array
+%            sensor temperature. This data can be used to filter some unqualified points.
+%
+% HISTORY:
+%    2019-02-14: first edition by Zhenping
+% .. Authors: - zp.yin@whu.edu.cn
 
 aeronet = struct();
 
