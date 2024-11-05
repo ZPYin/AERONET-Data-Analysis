@@ -22,10 +22,10 @@ function [files, filesize] = listfile(inPath, exppat, depth)
 %        the size the searched items. [bytes]
 %
 % HISTORY:
-%    - 2018-07-25: First edition by Zhenping.
-%    - 2018-09-14: Add recursive searching depth.
-%    - 2019-09-03: Add the output of filesize.
-%    - 2020-07-18: Stop interative search when searched the special folder of '..' or '.'
+%    2018-07-25: First edition by Zhenping.
+%    2018-09-14: Add recursive searching depth.
+%    2019-09-03: Add the output of filesize.
+%    2020-07-18: Stop interative search when searched the special folder of '..' or '.'
 %
 % .. Authors: - zhenping@tropos.de
 
